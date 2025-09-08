@@ -1,48 +1,41 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-
     // --- Declaração das variáveis da Carta 1 ---
     char estado1;
-    char codigo1[3];
-    char cidade1[20];
+    char codigo1[4];
+    char cidade1[40];
     int populacao1;
     float area1;
     float pib1;
     int pontosTuristicos1;
+    float densidade1; // nova variável do desafio nível aventureiro
+    float pibPerCapita1; // nova variável do desafio nível aventureiro
 
     // --- Declaração das variáveis da Carta 2 ---
     char estado2;
-    char codigo2[3];
-    char cidade2[20];
+    char codigo2[4];
+    char cidade2[40];
     int populacao2;
     float area2;
     float pib2;
     int pontosTuristicos2;
+    float densidade2; // nova variável do desafio nível aventureiro
+    float pibPerCapita2; // nova variável do desafio nível aventureiro
     
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-
     // --- Entrada de dados da Carta 1 ---
     printf("=== Cadastro da Carta 1 ===\n");
 
     printf("Digite o Estado (A-H): ");
-    scanf("%c", &estado1);
+    scanf(" %c", &estado1); // espaço antes do %c evita problemas com quebra de linha
 
     printf("Digite o Codigo da Carta (ex: A01): ");
     scanf("%s", codigo1);
     
     printf("Digite o Nome da Cidade: ");
-    scanf("%s", cidade1);
+    scanf(" %[^\n]", cidade1); // lê string com espaços
 
     printf("Digite a Populacao: ");
     scanf("%d", &populacao1);
@@ -56,18 +49,17 @@ int main() {
     printf("Digite o Numero de Pontos Turisticos: ");
     scanf("%d", &pontosTuristicos1);
 
-
     // --- Entrada de dados da Carta 2 ---
     printf("\n=== Cadastro da Carta 2 ===\n");
 
     printf("Digite o Estado (A-H): ");
-    scanf("%c", &estado2);
+    scanf(" %c", &estado2); // espaço antes do %c evita problemas com quebra de linha
 
     printf("Digite o Codigo da Carta (ex: A01): ");
     scanf("%s", codigo2);
 
     printf("Digite o Nome da Cidade: ");
-    scanf("%s", cidade2);
+    scanf(" %[^\n]", cidade2); // lê string com espaços
 
     printf("Digite a Populacao: ");
     scanf("%d", &populacao2);
@@ -82,10 +74,6 @@ int main() {
     scanf("%d", &pontosTuristicos2);
     
     
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
     // --- Exibindo os dados cadastrados ---
     printf("\n=== Carta 1 ===\n");
     printf("Estado: %c\n", estado1);
@@ -95,6 +83,8 @@ int main() {
     printf("Area: %.2f km²\n", area1);
     printf("PIB: %.2f bilhoes de reais\n", pib1);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", (populacao1 / area1)); // cálculo do desafio aventureiro
+    printf("PIB per Capita: %.2f reais\n", ((pib1 * 1000000000.0) / populacao1)); // cálculo do desafio aventureiro
 
     printf("\n=== Carta 2 ===\n");
     printf("Estado: %c\n", estado2);
@@ -104,6 +94,8 @@ int main() {
     printf("Area: %.2f km²\n", area2);
     printf("PIB: %.2f bilhoes de reais\n", pib2);
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", (populacao2 / area2)); // cálculo do desafio aventureiro
+    printf("PIB per Capita: %.2f reais\n", ((pib2 * 1000000000.0) / populacao2)); // cálculo do desafio aventureiro
 
     return 0;
 }
